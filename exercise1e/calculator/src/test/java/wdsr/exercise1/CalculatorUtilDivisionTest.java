@@ -28,13 +28,12 @@ public class CalculatorUtilDivisionTest {
 	@Test
 	public void test16dividedBy4() {
 		
-		doReturn(4).when(calculator).add(anyInt(), anyInt());
-		
+		doReturn(4.0).when(calculator).divide(anyInt(), anyInt());
+
 		String result = calcUtil.getDivisionText(16, 4);
 		
-		assertThat("16 / 4 = 4", is(result));
-		
-		verify(calculator).add(anyInt(), anyInt());
+		assertEquals("16 / 4 = 4.0", result);
+		verify(calculator).divide(anyInt(), anyInt());
 	}		
 
 	@Test(expected=IllegalArgumentException.class)
@@ -46,7 +45,6 @@ public class CalculatorUtilDivisionTest {
 		String result = calcUtil.getDivisionText(3, 0);
 		
 		// then
-		assertThat("5 / 0 = 0", is(result));
 		// empty - exception expected
 	}
 }

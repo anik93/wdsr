@@ -1,10 +1,9 @@
 package wdsr.exercise1;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyInt;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.doThrow;
-import static org.hamcrest.CoreMatchers.*;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -24,8 +23,11 @@ public class CalculatorUtilModuloTest {
 
 	@Test
 	public void testModuloByZero() {
-		doThrow(new IllegalArgumentException()).when(calculator).divide(anyInt(), eq(0));
-		String result = calcUtil.getModuloText(5, 0);
-		assertThat("5 % 0 = 0", is(result));
+		doReturn(0).when(calculator).modulo(anyInt(), anyInt());
+
+		String result = calcUtil.getModuloText(3, 0);
+
+		assertEquals("3 % 0 = 0", result);
+		verify(calculator).modulo(anyInt(), anyInt());
 	}	
 }

@@ -3,7 +3,6 @@ package wdsr.exercise1;
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.*;
-import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,13 +22,11 @@ public class CalculatorUtilSubtractionTest {
 
 	@Test
 	public void test3minus1() {
-		doReturn(2).when(calculator).add(anyInt(), anyInt());
-		
+		doReturn(2).when(calculator).subtract(anyInt(), anyInt());
+
 		String result = calcUtil.getSubstractionText(3, 1);
-		
-		//assertThat("3 - 1 = 2", is(result));
-		
+
 		assertEquals("3 - 1 = 2", result);
-		verify(calculator).add(anyInt(), anyInt());
+		verify(calculator).subtract(anyInt(), anyInt());
 	}
 }
