@@ -21,6 +21,7 @@ public class Main {
         } else {
 	        Calculator calculator = new Calculator();
 	        int[] nums = new ArrayConverter().convertToInts(args);
+	        log.debug(nums);
 	        log.info("Min="+calculator.min(nums));
 	        log.info("Max="+calculator.max(nums));
         }

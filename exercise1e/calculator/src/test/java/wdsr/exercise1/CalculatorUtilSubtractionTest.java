@@ -1,9 +1,9 @@
 package wdsr.exercise1;
 
-import static org.junit.Assert.fail;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.*;
+import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -27,8 +27,9 @@ public class CalculatorUtilSubtractionTest {
 		
 		String result = calcUtil.getSubstractionText(3, 1);
 		
-		assertEquals("3 - 1 = 2", result);
+		//assertThat("3 - 1 = 2", is(result));
 		
+		assertEquals("3 - 1 = 2", result);
 		verify(calculator).add(anyInt(), anyInt());
 	}
 }

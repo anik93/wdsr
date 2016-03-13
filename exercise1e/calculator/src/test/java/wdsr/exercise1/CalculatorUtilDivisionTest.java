@@ -1,10 +1,8 @@
 package wdsr.exercise1;
 
-import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.doReturn;
@@ -29,9 +27,14 @@ public class CalculatorUtilDivisionTest {
 	
 	@Test
 	public void test16dividedBy4() {
-		calcUtil.getDivisionText(16, 4);
+		
+		doReturn(4).when(calculator).add(anyInt(), anyInt());
+		
 		String result = calcUtil.getDivisionText(16, 4);
-		assertEquals("16 % 4 = 4", result);
+		
+		assertThat("16 / 4 = 4", is(result));
+		
+		verify(calculator).add(anyInt(), anyInt());
 	}		
 
 	@Test(expected=IllegalArgumentException.class)
@@ -40,9 +43,10 @@ public class CalculatorUtilDivisionTest {
 		doThrow(new IllegalArgumentException()).when(calculator).divide(anyInt(), eq(0));
 
 		// when
-		calcUtil.getDivisionText(3, 0);
+		String result = calcUtil.getDivisionText(3, 0);
 		
 		// then
+		assertThat("5 / 0 = 0", is(result));
 		// empty - exception expected
 	}
 }

@@ -1,6 +1,10 @@
 package wdsr.exercise1;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
+import static org.mockito.Matchers.anyInt;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.doThrow;
+import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -20,6 +24,8 @@ public class CalculatorUtilModuloTest {
 
 	@Test
 	public void testModuloByZero() {
-		fail("Not yet implemented");
+		doThrow(new IllegalArgumentException()).when(calculator).divide(anyInt(), eq(0));
+		String result = calcUtil.getModuloText(5, 0);
+		assertThat("5 % 0 = 0", is(result));
 	}	
 }
