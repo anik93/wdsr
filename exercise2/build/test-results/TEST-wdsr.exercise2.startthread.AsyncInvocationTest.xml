@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="wdsr.exercise2.startthread.AsyncInvocationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2016-03-22T12:32:53" hostname="C215_1" time="0.018">
-  <properties/>
-  <testcase name="testBusinessServiceWithCallable_properValueShouldBeInvoked" classname="wdsr.exercise2.startthread.AsyncInvocationTest" time="0.011"/>
-  <testcase name="testBusinessServiceWithThreadAndRunnable_computationAndCallbackShouldBeInvokedInANewThread" classname="wdsr.exercise2.startthread.AsyncInvocationTest" time="0.005"/>
-  <testcase name="testBusinessServiceWithExecutor_computationAndCallbackShouldBeInvokedInANewThread" classname="wdsr.exercise2.startthread.AsyncInvocationTest" time="0.002"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
